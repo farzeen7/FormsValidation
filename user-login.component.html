@@ -1,0 +1,26 @@
+<p>reactive-login-demo works!</p>
+<div>
+    <form [formGroup]="loginform" (ngSubmit)="onsubmitClick()">
+        Eneter User ID: <input type="text" name="emailid" formControlName="emailid" [formControl]="emailid"/>
+     <div [hidden]="emailid.valid || emailid.untouched" class="error">
+<!-- <div [hidden]="!emailid.hasError('minlength')"> -->
+<!-- Username cannot be less than 5 chars -->
+<div [hidden]="!emailid.hasError('required')">
+    Username is required
+
+</div>
+     </div>
+
+
+        <br/>
+        Eneter Password: <input type="password" name="password" formControlName="password" [formControl]="password"/>
+        <div [hidden]="password.valid || password.untouched" class="error">
+            <div [hidden]="!password.hasError('required')">
+                Password is required
+            </div>
+        </div>
+
+        <br/>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
